@@ -26,7 +26,7 @@
 	<!-- <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyfifteen' ); ?></a> -->
 
 	<div>
-		<header>
+		<header class="site-header">
 			<div class="site-branding">
 				<?php
 
