@@ -12,3 +12,13 @@
  * @package theocdcoder
  * @version 1.0
  */
+
+ get_header();
+
+ ?>
+
+ <div id="container"></div>
+
+ <?php 
+	get_footer();
+ ?>
