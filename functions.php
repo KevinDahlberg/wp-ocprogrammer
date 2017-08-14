@@ -12,6 +12,11 @@ function theme_scripts() {
   //adds the compiled react file
   wp_enqueue_script ('bundle', get_template_directory_uri() . '/client/assets/bundle.js', true);
 
+  //makes various wordpress settings available for use in the JS
+  wp_localize_script('queries', 'WPsettings', array(
+			'root' => esc_url_raw( rest_url() )
+		));
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts');
 
