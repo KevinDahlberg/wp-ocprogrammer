@@ -7,11 +7,6 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: 'assets'
   },
-  devServer: {
-    inline: true,
-    contentBase: __dirname + '/client',
-    port: 3000
-  },
   module: {
     loaders: [
       {
