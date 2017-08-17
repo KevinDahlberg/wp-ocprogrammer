@@ -3,9 +3,14 @@ var webpack = require('webpack');
 module.exports = {
   entry: __dirname + '/src/index.js',
   output: {
-    path: __dirname + '/client/assets',
+    path: __dirname + '/assets',
     filename: 'bundle.js',
     publicPath: 'assets'
+  },
+  devServer: {
+    inline: true,
+    contentBase: __dirname + '/',
+    port: 4000
   },
   module: {
     loaders: [
@@ -14,7 +19,7 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         options: {
-          presets: ['latest', 'stage-o', 'react']
+          presets: ['latest', 'stage-0', 'react']
         }
       }
     ]
