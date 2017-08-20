@@ -1,7 +1,7 @@
 import React from 'react';
 import { render as renderJSX } from 'react-dom';
 
-import SiteHeader from './components/header.js';
+import SiteHeader from './components/header';
 
 const appState = {
   title: "The OCD Coder",

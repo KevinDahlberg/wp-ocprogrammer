@@ -22466,7 +22466,7 @@ var SiteHeader = function (_Component) {
   }]);
 
   return SiteHeader;
-}(Component);
+}(_react.Component);
 
 exports.default = SiteHeader;
 
