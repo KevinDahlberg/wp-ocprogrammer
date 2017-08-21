@@ -2,6 +2,7 @@ import React from 'react';
 import { render as renderJSX } from 'react-dom';
 
 import SiteHeader from './components/header';
+import Posts from './components/posts';
 
 const appState = {
   title: "The OCD Coder",
@@ -16,6 +17,7 @@ function render(props) {
           title={props.title}
           subtitle={props.subtitle}
         />
+        <Posts />
       </main>),
       document.getElementById('container')
   )
