@@ -5,7 +5,7 @@
  */
 
 var postArray = [];
-
+console.log(WPsettings.root);
 (function($) {
 
   function getPosts() {
@@ -14,9 +14,14 @@ var postArray = [];
       type: 'GET',
       url: WPsettings.root + 'wp/v2/posts',
       success: function(response) {
-        postArray.push(response.data);
+        console.log(response[0].content.rendered);
+        postArray.push(response);
       }
     });
   }
 
+  getPosts();
+
 })(jQuery);
+
+export default postArray
