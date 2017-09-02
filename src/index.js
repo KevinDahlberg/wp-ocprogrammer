@@ -5,7 +5,6 @@ import SiteHeader from './components/header';
 import Posts from './components/posts';
 import SiteFooter from './components/footer';
 import postsAPI from './components/postsAPI';
-import postArray from './queries';
 
 class App extends Component {
 
@@ -20,30 +19,30 @@ class App extends Component {
       };
     }
 
-    componentDidMount() {
-      postsApi.requestPost().then(data => {
-        this.setState({postArray: data})
-      });
-    }
+    // componentDidMount() {
+    //   postsApi.requestPost().then(data => {
+    //     this.setState({postArray: data})
+    //   });
+    // }
 
   render() {
     return
       (
         <main>
           <SiteHeader
-            title={props.title}
-            subtitle={props.subtitle}
+            title={state.title}
+            subtitle={state.subtitle}
           />
-          <Posts {...this.state.postArray}/>
+
           <SiteFooter
-            copyright={props.copyright}
+            copyright={state.copyright}
           />
         </main>
       );
   }
 }
 
-render(
+render (
   <App />,
   document.getElementById('container')
 );

@@ -9774,10 +9774,6 @@ var _postsAPI = __webpack_require__(187);
 
 var _postsAPI2 = _interopRequireDefault(_postsAPI);
 
-var _queries = __webpack_require__(189);
-
-var _queries2 = _interopRequireDefault(_queries);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9803,16 +9799,13 @@ var App = function (_Component) {
     return _this;
   }
 
-  _createClass(App, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
+  // componentDidMount() {
+  //   postsApi.requestPost().then(data => {
+  //     this.setState({postArray: data})
+  //   });
+  // }
 
-      postsApi.requestPost().then(function (data) {
-        _this2.setState({ postArray: data });
-      });
-    }
-  }, {
+  _createClass(App, [{
     key: 'render',
     value: function render() {
       return;
@@ -9820,12 +9813,11 @@ var App = function (_Component) {
         'main',
         null,
         _react2.default.createElement(_header2.default, {
-          title: props.title,
-          subtitle: props.subtitle
+          title: state.title,
+          subtitle: state.subtitle
         }),
-        _react2.default.createElement(_posts2.default, this.state.postArray),
         _react2.default.createElement(_footer2.default, {
-          copyright: props.copyright
+          copyright: state.copyright
         })
       );
     }
@@ -22568,7 +22560,7 @@ var Posts = function (_Component) {
   _createClass(Posts, [{
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
-      this.setState(nextProps);
+      this.setState({ nextProps: nextProps });
     }
   }, {
     key: "render",
@@ -32927,44 +32919,6 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-
-/***/ }),
-/* 189 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(jQuery) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-/**
- * @desc contains all of the database calls for the blog
- * @package theocdcoder
- * @version 1.0
- */
-
-var postArray = [];
-console.log(WPsettings.root);
-(function ($) {
-
-  function getPosts() {
-
-    $.ajax({
-      type: 'GET',
-      url: WPsettings.root + 'wp/v2/posts',
-      success: function success(response) {
-        console.log(response[0].content.rendered);
-        postArray.push(response);
-      }
-    });
-  }
-
-  getPosts();
-})(jQuery);
-
-exports.default = postArray;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(188)))
 
 /***/ })
 /******/ ]);

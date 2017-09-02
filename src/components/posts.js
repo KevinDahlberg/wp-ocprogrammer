@@ -10,7 +10,7 @@ export default class Posts extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState(nextProps);
+    this.setState({nextProps});
   }
 
   render() {

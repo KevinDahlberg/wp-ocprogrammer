@@ -23,5 +23,3 @@ console.log(WPsettings.root);
   getPosts();
 
 })(jQuery);
-
-export default postArray
