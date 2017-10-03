@@ -13,14 +13,24 @@ module.exports = {
     port: 4000
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /(node_modules)/,
-      loader: 'babel-loader',
-      options: {
-        presets: ['latest', 'stage-0', 'react']
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['env', 'stage-0', 'react']
+        }
+      },
+      {
+        test: /\.jsx$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['env', 'stage-0', 'react']
+        }
       }
-    }]
+    ]
   },
   plugins: [
     new webpack.ProvidePlugin({
