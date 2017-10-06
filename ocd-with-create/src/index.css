@@ -1,5 +1,16 @@
-body {
+body, html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  min-height: 100%;
+  position: relative
+}
+
+.content-body {
+  padding-top: 70px;
+  min-height: 100%;
+}
+
+.footer {
+
 }

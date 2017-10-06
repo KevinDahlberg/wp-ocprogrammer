@@ -5,7 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 export default class Menu extends Component {
   render() {
     return (
-      <Navbar inverse>
+      <Navbar fixedTop>
         <Navbar.Header>
           <LinkContainer to="/">
             <Navbar.Brand>

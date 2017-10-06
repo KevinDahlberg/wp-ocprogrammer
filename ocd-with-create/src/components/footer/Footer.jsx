@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
+import { Navbar, Nav, NavItem } from 'react-bootstrap'
 
 export default class Footer extends Component {
   render () {
     return (
-      <p>Copyright 2017 One Point Oh Consulting </p>
+      <div className="footer">
+        <Navbar inverse>
+          <Nav>
+            <NavItem>Copyright 2017 One Point Oh Consulting</NavItem>
+          </Nav>
+        </Navbar>
+      </div>
     )
   }
 }
