@@ -12,8 +12,9 @@ const Layout = () => (
       <div>
         <Menu />
         <Route exact path="/" component={Home} />
-        <Route exact path="/About" component={About} />
-        <Route exact path="/:id" component={Post} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/post/:id" component={Post} />
       </div>
     </Switch>
   </div>
