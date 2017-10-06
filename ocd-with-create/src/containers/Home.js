@@ -10,8 +10,10 @@ import ViewPost from '../components/home/ViewPost'
 class Home extends Component {
 
   componentDidMount() {
+    const { fetchPosts } = this.props
     fetchPosts()
   }
+
   render() {
     return (
       <div>
@@ -25,7 +27,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-
+  posts: state.postReducer.posts
 })
 
 const mapDispatchToProps = dispatch => {

@@ -1,16 +1,15 @@
 import fetch from 'isomorphic-fetch'
 
-export const POSTS = 'POSTS'
+export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 
 const initialState = {
   posts: []
 }
 
-export function posts (postArray) {
+export function requestPosts () {
   return {
-    type: POSTS,
-    posts: postArray
+    type: REQUEST_POSTS,
   }
 }
 
@@ -26,16 +25,21 @@ export function fetchPosts () {
   const init = {
     method: 'GET'
   }
-  fetch('http://theocdcoder.com/wp-json/wp/v2/posts', init)
-    .then(response => response.json())
-    .then(json => receivePosts(json))
+  return dispatch => {
+    dispatch(requestPosts())
+      fetch('http://theocdcoder.com/wp-json/wp/v2/posts', init)
+        .then(response => response.json())
+        .then(json => dispatch(receivePosts(json)))
+  }
 }
+
+
 
 function postReducer (state = initialState, action) {
   console.log(action);
   switch (action.type) {
-    case POSTS:
-      return { ...state, posts: action.posts}
+    case REQUEST_POSTS:
+      return state
     case RECEIVE_POSTS:
       return { ...state, posts: action.posts}
     default:
