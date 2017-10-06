@@ -5,6 +5,7 @@ import { Grid } from 'react-bootstrap'
 
 import { fetchPosts } from '../data/posts'
 
+import Header from '../components/home/Header'
 import ViewPost from '../components/home/ViewPost'
 
 class Home extends Component {
@@ -17,7 +18,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-      <h1>Home</h1>
+      <Header />
       <Grid>
       <ViewPost posts={this.props.posts} />
       </Grid>
