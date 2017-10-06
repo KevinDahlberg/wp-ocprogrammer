@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import Menu from './menu/Menu'
-import Home from './home/Home'
+import Home from '../containers/Home'
 import About from './about/About'
 import Post from './post/Post'
 

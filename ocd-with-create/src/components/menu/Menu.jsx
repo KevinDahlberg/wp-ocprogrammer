@@ -9,7 +9,7 @@ export default class Menu extends Component {
         <Navbar.Header>
           <LinkContainer to="/">
             <Navbar.Brand>
-              The OCD Coder 
+              The OCD Coder
             </Navbar.Brand>
           </LinkContainer>
         </Navbar.Header>
@@ -18,6 +18,8 @@ export default class Menu extends Component {
             <LinkContainer to="/home">
               <NavItem eventKey={1} href="/home">Home</NavItem>
             </LinkContainer>
+          </Nav>
+          <Nav pullRight>
             <LinkContainer to="/about">
               <NavItem eventKey={2} href="/about">About</NavItem>
             </LinkContainer>
