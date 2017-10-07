@@ -15,6 +15,10 @@ body, html {
   min-height: 100%;
 }
 
+.excerpt-box {
+  padding: 20px;
+}
+
 p {
   padding: 10px;
 }

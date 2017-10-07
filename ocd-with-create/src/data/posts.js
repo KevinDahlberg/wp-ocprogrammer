@@ -27,7 +27,7 @@ export function fetchPosts () {
   }
   return dispatch => {
     dispatch(requestPosts())
-      fetch('http://theocdcoder.com/wp-json/wp/v2/posts', init)
+      fetch('http://theocdcoder.com/wp-json/wp/v2/posts?_embed=true', init)
         .then(response => response.json())
         .then(json => dispatch(receivePosts(json)))
   }

@@ -6,7 +6,7 @@ import { Grid } from 'react-bootstrap'
 import { fetchPosts } from '../data/posts'
 
 import Header from '../components/home/Header'
-import ViewPost from '../components/home/ViewPost'
+import PostExcerpt from '../components/home/PostExcerpt'
 
 class Home extends Component {
 
@@ -20,7 +20,7 @@ class Home extends Component {
       <div>
       <Header />
       <Grid>
-      <ViewPost posts={this.props.posts} />
+      <PostExcerpt posts={this.props.posts} />
       </Grid>
       </div>
     )
