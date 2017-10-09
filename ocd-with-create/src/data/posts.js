@@ -2,9 +2,11 @@ import fetch from 'isomorphic-fetch'
 
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+export const DISPLAY_POST = 'DISPLAY_POST'
 
 const initialState = {
-  posts: []
+  posts: [],
+  currentPost: {}
 }
 
 export function requestPosts () {
@@ -33,15 +35,31 @@ export function fetchPosts () {
   }
 }
 
+export function displayPost (postName) {
+  return dispatch => {
+    dispatch(fetchPosts())
+    .then(
+      {
+        type: DISPLAY_POST,
+        postName
+      }
+    )
+  }
+}
 
 
 function postReducer (state = initialState, action) {
-  console.log(action);
+  console.log(action, state);
   switch (action.type) {
     case REQUEST_POSTS:
       return state
     case RECEIVE_POSTS:
       return { ...state, posts: action.posts}
+    case DISPLAY_POST:
+      return {
+        ...state,
+        currentPost: state.postArray
+      }
     default:
       return state
   }

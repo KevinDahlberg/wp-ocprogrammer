@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+import { displayPost } from '../data/posts'
 
 class Post extends Component {
   constructor(props) {
     super(props)
+  }
+  componentDidMount(){
+    const { displayPost } = this.props
+    const currentPostTitle = this.props.match.params.title.replace(/-/g, ' ')
+    console.log(currentPostTitle);
+    displayPost(currentPostTitle)
+    console.log(this.props.currentPost);
   }
 
   render() {
@@ -11,5 +22,12 @@ class Post extends Component {
   )
   }
 }
+const mapStateToProps = state => ({
+  currentPost: state.postReducer.currentPost
+})
 
-export default Post
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({displayPost}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post)
