@@ -5,7 +5,7 @@ import Menu from './menu/Menu'
 import Footer from './footer/Footer'
 import Home from '../containers/Home'
 import About from './about/About'
-import Post from './post/Post'
+import Post from '../containers/Post'
 
 const Layout = () => (
   <div className="body">

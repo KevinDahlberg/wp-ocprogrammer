@@ -4,6 +4,10 @@ import { Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 export default class PostExcerpt extends Component {
+  constructor(props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
 
   excerptTitle (title) {
     return (
@@ -49,12 +53,17 @@ export default class PostExcerpt extends Component {
     )
   }
 
+  handleClick(e) {
+    this.props.onItemClick(e.target.value)
+    console.log(e.target.value);
+  }
+
   render() {
     return (
       <div>
         {this.props.posts.map((post, idx) => {
             return (
-              <div key={idx}>
+              <div key={idx} onClick={this.handleClick} value={post.id}>
               {this.excerptBox(post)}
               </div>
             )

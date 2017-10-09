@@ -9,10 +9,19 @@ import Header from '../components/home/Header'
 import PostExcerpt from '../components/home/PostExcerpt'
 
 class Home extends Component {
+  constructor(props){
+    super(props)
+
+    this.handleClick = this.handleClick.bind(this)
+  }
 
   componentDidMount() {
     const { fetchPosts } = this.props
     fetchPosts()
+  }
+
+  handleClick(e) {
+    console.log(e);
   }
 
   render() {
@@ -20,7 +29,7 @@ class Home extends Component {
       <div>
       <Header />
       <Grid>
-      <PostExcerpt posts={this.props.posts} />
+      <PostExcerpt posts={this.props.posts} onItemClick={this.handleClick} />
       </Grid>
       </div>
     )
