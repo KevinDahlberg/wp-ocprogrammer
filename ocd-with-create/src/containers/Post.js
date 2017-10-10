@@ -2,17 +2,17 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { displayPost } from '../data/posts'
+import { checkPostArray } from '../data/posts'
 
 class Post extends Component {
   constructor(props) {
     super(props)
   }
   componentDidMount(){
-    const { displayPost } = this.props
+    const { checkPostArray } = this.props
     const currentPostTitle = this.props.match.params.title.replace(/-/g, ' ')
-    console.log(currentPostTitle);
-    displayPost(currentPostTitle)
+    console.log('current post title: ', currentPostTitle);
+    checkPostArray(currentPostTitle)
     console.log(this.props.currentPost);
   }
 
@@ -27,7 +27,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({displayPost}, dispatch)
+  return bindActionCreators({checkPostArray}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post)

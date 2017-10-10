@@ -23,7 +23,25 @@ function receivePosts(json) {
   }
 }
 
+export function fetchPostsIfNeeded() {
+  return (dispatch, getState) => {
+    if (shouldFetchPosts(getState())){
+      return dispatch(fetchPosts())
+    }
+  }
+}
+
+export function shouldFetchPosts(state) {
+  const posts = state.posts
+  if (!posts) {
+    return true
+  } else {
+    return false
+  }
+}
+
 export function fetchPosts () {
+  console.log('fetch posts called');
   const init = {
     method: 'GET'
   }
@@ -35,15 +53,26 @@ export function fetchPosts () {
   }
 }
 
+export function checkPostArray(postName){
+  return ( dispatch, getState ) => {
+    if (shouldFetchPosts(getState())){
+      console.log('check is true');
+      dispatch(fetchPosts(), filterPosts(getState(), postName))
+    } else {
+      console.log('check is false');
+      dispatch(filterPosts(getState(), postName))
+    }
+  }
+}
+
+function filterPosts(state, postName){
+  console.log('State: ', state, ' PostName: ', postName);
+}
+
 export function displayPost (postName) {
-  return dispatch => {
-    dispatch(fetchPosts())
-    .then(
-      {
-        type: DISPLAY_POST,
-        postName
-      }
-    )
+  return {
+    type: DISPLAY_POST,
+    postName
   }
 }
 

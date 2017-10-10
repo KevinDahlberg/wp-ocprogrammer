@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Grid } from 'react-bootstrap'
 
-import { fetchPosts } from '../data/posts'
+import { fetchPostsIfNeeded } from '../data/posts'
 
 import Header from '../components/home/Header'
 import PostExcerpt from '../components/home/PostExcerpt'
@@ -16,8 +16,8 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    const { fetchPosts } = this.props
-    fetchPosts()
+    const { fetchPostsIfNeeded } = this.props
+    fetchPostsIfNeeded()
   }
 
   handleClick(e) {
@@ -41,7 +41,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({fetchPosts}, dispatch)
+  return bindActionCreators({fetchPostsIfNeeded}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
