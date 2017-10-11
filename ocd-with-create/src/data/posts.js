@@ -2,13 +2,12 @@ import fetch from 'isomorphic-fetch'
 
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-export const DISPLAY_POST = 'DISPLAY_POST'
 export const RECEIVE_SINGLE_POST = 'RECEIVE_SINGLE_POST'
 
 //sets initial state for the App
 const initialState = {
   posts: [],
-  currentPost: {},
+  currentPost: [],
   isFetching: false
 }
 
@@ -29,7 +28,7 @@ export function requestPosts() {
  * @desc action that sets the posts array and changes isFetching to false
  */
 function receivePosts(json) {
-  console.log(json);
+  console.log('postArray', json);
   return {type: RECEIVE_POSTS, posts: json, isFetching: false}
 }
 
@@ -38,12 +37,8 @@ function receivePosts(json) {
  * @desc sets the currentPost
  */
 function receiveSinglePost(json) {
-  console.log(json);
+  console.log('single post ', json);
   return {type: RECEIVE_SINGLE_POST, currentPost: json}
-}
-
-export function displayPost(postName) {
-  return {type: DISPLAY_POST, postName}
 }
 
 /**
@@ -87,7 +82,9 @@ export function fetchPosts() {
   }
   return dispatch => {
     dispatch(requestPosts())
-    fetch('http://theocdcoder.com/wp-json/wp/v2/posts?_embed=true', init).then(response => response.json()).then(json => dispatch(receivePosts(json)))
+    fetch('http://theocdcoder.com/wp-json/wp/v2/posts?_embed=true', init)
+    .then(response => response.json())
+    .then(json => dispatch(receivePosts(json)))
   }
 }
 
@@ -101,9 +98,9 @@ export function shouldFetchSinglePosts(postName) {
   return (dispatch, getState) => {
     if (shouldFetchPosts(getState())) {
       dispatch(fetchSinglePost(postName), fetchPosts())
-    }
-  } else {
+    } else {
     dispatch(filterSinglePost(getState(), postName))
+    }
   }
 }
 
@@ -115,9 +112,11 @@ export function fetchSinglePost(postName) {
   const init = {
     method: 'GET'
   }
-  const url = 'http://theocdcoder.com/wp-json/wp/v2/posts/' + postName
+  const url = 'http://theocdcoder.com/wp-json/wp/v2/posts?slug=' + postName
   return dispatch => {
     fetch(url, init)
+    .then(response => response.json())
+    .then(json => dispatch(receiveSinglePost(json)))
   }
 }
 
@@ -127,7 +126,7 @@ export function fetchSinglePost(postName) {
  */
 export function filterSinglePost(state, postName) {
   const posts = state.postArray
-  const singlePost = posts.filter((post.title) => {return post.title !== postName})
+  const singlePost = posts.filter((post) => {return post.title !== postName})
   return dispatch => {
     dispatch(receiveSinglePost(singlePost))
   }
@@ -151,10 +150,10 @@ function postReducer(state = initialState, action) {
         ...state,
         posts: action.posts
       }
-    case DISPLAY_POST:
+    case RECEIVE_SINGLE_POST:
       return {
         ...state,
-        currentPost: state.postArray
+        currentPost: action.currentPost
       }
     default:
       return state

@@ -1,24 +1,31 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Grid } from 'react-bootstrap'
 
-import { checkPostArray } from '../data/posts'
+import { shouldFetchSinglePosts } from '../data/posts'
+
+import ViewPost from '../components/post/ViewPost'
 
 class Post extends Component {
   constructor(props) {
     super(props)
   }
   componentDidMount(){
-    const { checkPostArray } = this.props
-    const currentPostTitle = this.props.match.params.title.replace(/-/g, ' ')
+    const { shouldFetchSinglePosts } = this.props
+    const currentPostTitle = this.props.match.params.title
     console.log('current post title: ', currentPostTitle);
-    checkPostArray(currentPostTitle)
-    console.log(this.props.currentPost);
+    shouldFetchSinglePosts(currentPostTitle)
   }
 
   render() {
   return (
+    <Grid>
     <h1>{this.props.match.params.title}</h1>
+    <div>
+      <ViewPost posts={this.props.currentPost} />
+    </div>
+    </Grid>
   )
   }
 }
@@ -27,7 +34,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({checkPostArray}, dispatch)
+  return bindActionCreators({shouldFetchSinglePosts}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post)
