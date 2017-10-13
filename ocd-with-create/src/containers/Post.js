@@ -21,7 +21,6 @@ class Post extends Component {
   render() {
   return (
     <Grid>
-    <h1>{this.props.match.params.title}</h1>
     <div>
       <ViewPost posts={this.props.currentPost} />
     </div>
