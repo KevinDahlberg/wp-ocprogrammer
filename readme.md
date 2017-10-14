@@ -24,3 +24,4 @@ This theme is a theme that combines React.js and Wordpress.
 MIT
 
 ## Acknowledgements
+Wordpress
