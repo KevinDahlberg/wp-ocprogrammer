@@ -17,14 +17,13 @@ function requestSinglePage(){
 }
 
 function receiveSinglePage(json){
-  console.log('single page? ', json);
   return {type: RECEIVE_SINGLE_PAGE, currentPage: json}
 }
 
 function shouldFetchPages(state, pageName) {
   //this variable will get changed when multiple pages are taken into consideration
   const page = state.pageReducer.currentPage
-  if (page.slug === pageName) {
+  if (page.length !== 0 && page[0].slug === pageName) {
     return false
   } else {
     return true
@@ -39,13 +38,12 @@ export function shouldFetchSinglePage(pageName) {
       dispatch(fetchSinglePage(pageName))
       dispatch(fetchPosts())
     } else {
-      dispatch(fetchSinglePage(pageName))
+      return
     }
   }
 }
 
 function fetchSinglePage(pageName) {
-  console.log('page fetching is, ', pageName);
   const init = {
     method: 'GET'
   }
