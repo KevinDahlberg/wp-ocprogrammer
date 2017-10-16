@@ -23,20 +23,36 @@ export default class PostExcerpt extends Component {
         </Row>
     )
   }
-  // this will be added later when the theme supports it
-  // excerptImage = image => (
-  //   <img src={image.url} alt={image.alt} />
-  // )
+
+  excerptImage (image) {
+    return (
+      <img src={image.url} alt={image.alt} />
+    )
+  }
 
   excerptLayout (postInfo) {
-    return (
-    <Row>
-      <Col xs={12}>
-        {this.excerptTitle(postInfo.title.rendered)}
-        {this.excerptSummary(postInfo.excerpt.rendered)}
-      </Col>
-    </Row>
-    )
+    if (postInfo.image) {
+      return (
+        <Row>
+          <Col xs={6}>
+            {this.excerptImage(postInfo.image)}
+          </Col>
+          <Col xs={6}>
+            {this.excerptTitle(postInfo.title.rendered)}
+            {this.excerptSummary(postInfo.excerpt.rendered)}
+          </Col>
+        </Row>
+      )
+    } else {
+      return (
+        <Row>
+          <Col xs={12}>
+            {this.excerptTitle(postInfo.title.rendered)}
+            {this.excerptSummary(postInfo.excerpt.rendered)}
+          </Col>
+        </Row>
+      )
+    }
   }
 
   excerptBox (postInfo) {
