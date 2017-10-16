@@ -29,7 +29,6 @@ export function requestPosts() {
  * @desc action that sets the posts array and changes isFetching to false
  */
 function receivePosts(json) {
-  console.log('postArray', json);
   return {type: RECEIVE_POSTS, posts: json, isFetching: false}
 }
 
@@ -73,8 +72,8 @@ export function fetchPostsIfNeeded() {
  * @return true if there are no posts, false if there are posts
  */
 export function shouldFetchPosts(state) {
-  const posts = state.posts
-  if (!posts) {
+  const posts = state.postReducer.posts
+  if (posts.length === 0 ) {
     return true
   } else {
     return false
@@ -86,7 +85,6 @@ export function shouldFetchPosts(state) {
  * @desc fetches posts from the db
  */
 export function fetchPosts() {
-  console.log('fetch posts called');
   const init = {
     method: 'GET'
   }
@@ -134,11 +132,11 @@ export function fetchSinglePost(postName) {
 
 /**
  * @function filterSinglePost
- * @desc filters out a single post the postArray in state
+ * @desc filters out a single post the posts in state.postReducer
  */
 export function filterSinglePost(state, postName) {
-  const posts = state.postArray
-  const singlePost = posts.filter((post) => {return post.title !== postName})
+  const posts = state.postReducer.posts
+  const singlePost = posts.filter((post) => {return post.slug === postName})
   return dispatch => {
     dispatch(receiveSinglePost(singlePost))
   }
@@ -153,7 +151,6 @@ function filterPosts(state, postName) {
  */
 
 function postReducer(state = initialState, action) {
-  console.log(action, state);
   switch (action.type) {
     case REQUEST_POSTS:
       return state

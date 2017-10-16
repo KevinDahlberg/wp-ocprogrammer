@@ -16,10 +16,6 @@ class Post extends Component {
     }
   }
 
-  setState(state) {
-    return {...state, currentPost: []}
-  }
-
   componentDidMount(){
     const { shouldFetchSinglePosts } = this.props
     const currentPostTitle = this.props.match.params.title
