@@ -7,7 +7,7 @@ export default class Footer extends Component {
       <div className="footer">
         <Navbar inverse>
           <Nav>
-            <NavItem>Copyright 2017 One Point Oh Consulting</NavItem>
+            <NavItem>Copyright 2017 One Point Oh Solutions</NavItem>
           </Nav>
         </Navbar>
       </div>

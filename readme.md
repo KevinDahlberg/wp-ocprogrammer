@@ -19,6 +19,7 @@ This theme is a theme that combines React.js and Wordpress.
 
 ## Versioning
 1.0 - Up and Running
+to do for 1.1 - make theme work with theme settings.
 
 ## License
 MIT
