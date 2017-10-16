@@ -60,7 +60,7 @@ export default class PostExcerpt extends Component {
     return (
     <Link to={postPath}>
       <div key={postInfo.id}>
-      <Col xs={4} className="excerpt-box">
+      <Col xs={4}>
         {this.excerptLayout(postInfo)}
       </Col>
       </div>
@@ -74,7 +74,7 @@ export default class PostExcerpt extends Component {
 
   render() {
     return (
-      <div>
+      <div className="excerpt-box">
         {this.props.posts.map((post, idx) => {
             return (
               <div key={idx} onClick={this.handleClick} value={post.id}>

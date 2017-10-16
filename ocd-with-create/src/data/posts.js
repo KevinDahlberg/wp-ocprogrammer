@@ -46,7 +46,6 @@ function receivePosts(json) {
  * @desc sets the currentPost
  */
 function receiveSinglePost(json) {
-  console.log('single post ', json);
   return {type: RECEIVE_SINGLE_POST, currentPost: json}
 }
 
@@ -72,9 +71,7 @@ export function fetchPostsIfNeeded() {
  * @return true if there are no posts, false if there are posts
  */
 export function shouldFetchPosts(state) {
-  console.log('shoutlFetchPosts called')
   const posts = state.postReducer.posts
-  console.log('posts is, ', posts);
   if (posts.length === 0 ) {
     return true
   } else {
@@ -87,7 +84,6 @@ export function shouldFetchPosts(state) {
  * @desc fetches posts from the db
  */
 export function fetchPosts() {
-  console.log('fetch posts called');
   const init = {
     method: 'GET'
   }
@@ -144,10 +140,6 @@ export function filterSinglePost(state, postName) {
   return dispatch => {
     dispatch(receiveSinglePost(singlePost))
   }
-}
-
-function filterPosts(state, postName) {
-  console.log('State: ', state, ' PostName: ', postName);
 }
 
 /**

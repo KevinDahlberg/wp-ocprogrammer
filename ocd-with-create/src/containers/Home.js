@@ -16,7 +16,6 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.isFetching);
     const { fetchPostsIfNeeded } = this.props
     fetchPostsIfNeeded()
   }

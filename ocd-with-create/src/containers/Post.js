@@ -19,7 +19,6 @@ class Post extends Component {
   componentDidMount(){
     const { shouldFetchSinglePosts } = this.props
     const currentPostTitle = this.props.match.params.title
-    console.log('current post title: ', currentPostTitle);
     shouldFetchSinglePosts(currentPostTitle)
   }
 

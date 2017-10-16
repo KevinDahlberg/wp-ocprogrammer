@@ -19,6 +19,14 @@ body, html {
   padding: 20px;
 }
 
+.excerpt-box a {
+  color: black;
+}
+
+.excerpt-box a:hover {
+  color: gray;
+}
+
 .placeholder {
   height: 500px;
 }

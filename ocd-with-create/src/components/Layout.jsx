@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import Menu from './menu/Menu'
 import Footer from './footer/Footer'
 import Home from '../containers/Home'
-import About from './about/About'
+import About from '../containers/About'
 import Post from '../containers/Post'
 
 const Layout = () => (
