@@ -72,7 +72,9 @@ export function fetchPostsIfNeeded() {
  * @return true if there are no posts, false if there are posts
  */
 export function shouldFetchPosts(state) {
+  console.log('shoutlFetchPosts called')
   const posts = state.postReducer.posts
+  console.log('posts is, ', posts);
   if (posts.length === 0 ) {
     return true
   } else {
@@ -85,6 +87,7 @@ export function shouldFetchPosts(state) {
  * @desc fetches posts from the db
  */
 export function fetchPosts() {
+  console.log('fetch posts called');
   const init = {
     method: 'GET'
   }
@@ -107,7 +110,8 @@ export function shouldFetchSinglePosts(postName) {
     dispatch(requestSinglePost())
 
     if (shouldFetchPosts(getState())) {
-      dispatch(fetchSinglePost(postName), fetchPosts())
+      dispatch(fetchSinglePost(postName))
+      dispatch(fetchPosts())
     } else {
     dispatch(filterSinglePost(getState(), postName))
     }

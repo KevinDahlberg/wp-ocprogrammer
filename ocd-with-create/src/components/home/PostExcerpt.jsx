@@ -70,7 +70,6 @@ export default class PostExcerpt extends Component {
 
   handleClick(e) {
     this.props.onItemClick(e.target.value)
-    console.log(e.target.value);
   }
 
   render() {
