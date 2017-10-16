@@ -17,8 +17,8 @@
 
  ?>
 
- <div id="container"></div>
+ <div id="root"></div>
 
- <?php 
+ <?php
 	get_footer();
  ?>
