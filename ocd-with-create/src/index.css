@@ -19,6 +19,10 @@ body, html {
   padding: 20px;
 }
 
+.placeholder {
+  height: 500px;
+}
+
 p {
   padding: 10px;
 }

@@ -2,6 +2,7 @@ import fetch from 'isomorphic-fetch'
 
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+export const REQUEST_SINGLE_POST = 'REQUEST_SINGLE_POST'
 export const RECEIVE_SINGLE_POST = 'RECEIVE_SINGLE_POST'
 
 //sets initial state for the App
@@ -31,6 +32,15 @@ function receivePosts(json) {
   console.log('postArray', json);
   return {type: RECEIVE_POSTS, posts: json, isFetching: false}
 }
+
+/**
+ * @function requestSinglePost
+ * @desc sets currentPost in state to blank
+ */
+
+ function requestSinglePost() {
+   return {type: REQUEST_SINGLE_POST, currentPost: []}
+ }
 
 /**
  * @function receiveSinglePost
@@ -96,6 +106,8 @@ export function fetchPosts() {
  */
 export function shouldFetchSinglePosts(postName) {
   return (dispatch, getState) => {
+    dispatch(requestSinglePost())
+
     if (shouldFetchPosts(getState())) {
       dispatch(fetchSinglePost(postName), fetchPosts())
     } else {
@@ -149,6 +161,11 @@ function postReducer(state = initialState, action) {
       return {
         ...state,
         posts: action.posts
+      }
+    case REQUEST_SINGLE_POST:
+      return {
+        ...state,
+        currentPost: action.currentPost
       }
     case RECEIVE_SINGLE_POST:
       return {
