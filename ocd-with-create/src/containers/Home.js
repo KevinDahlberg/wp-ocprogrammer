@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Grid, Col } from 'react-bootstrap'
 
 import { fetchPostsIfNeeded } from '../data/posts'
+import { shouldFetchSinglePage } from '../data/pages'
 
 import Header from '../components/home/Header'
 import PostExcerpt from '../components/home/PostExcerpt'
@@ -16,8 +17,11 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    const { fetchPostsIfNeeded } = this.props
+    const { fetchPostsIfNeeded, shouldFetchSinglePage } = this.props
     fetchPostsIfNeeded()
+    //this will be replaced by something from the settings that will provide the pages that are in the nav widget
+    const pageName = 'about'
+    shouldFetchSinglePage(pageName)
   }
 
   handleClick(e) {
@@ -48,11 +52,11 @@ class Home extends Component {
 
 const mapStateToProps = state => ({
   posts: state.postReducer.posts,
-  isFetching: state.postReducer.isFetching
+  isFetching: state.postReducer.isFetching,
 })
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({fetchPostsIfNeeded}, dispatch)
+  return bindActionCreators({fetchPostsIfNeeded, shouldFetchSinglePage}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
