@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 
-import Layout from '../components/Layout'
+import Layout from '../components/Layout.jsx'
 import store, { history } from '../data/store'
 
 export default class Root extends Component {

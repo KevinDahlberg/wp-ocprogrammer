@@ -5,7 +5,7 @@ import { Grid, Col } from 'react-bootstrap'
 
 import { shouldFetchSinglePosts } from '../data/posts'
 
-import ViewPost from '../components/post/ViewPost'
+import ViewPost from '../components/post/ViewPost.jsx'
 
 class Post extends Component {
   constructor(props) {

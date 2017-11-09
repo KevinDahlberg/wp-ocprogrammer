@@ -5,7 +5,7 @@ import { Grid, Col } from 'react-bootstrap'
 
 import { shouldFetchSinglePage } from '../data/pages'
 
-import ViewPost from '../components/post/ViewPost'
+import ViewPost from '../components/post/ViewPost.jsx'
 
 //this page is built for a single About page with the title 'about'.  In future updates, it can be used as a "single page template" with some minor changes
 

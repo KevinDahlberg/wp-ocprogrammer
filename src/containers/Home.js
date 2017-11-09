@@ -6,8 +6,8 @@ import { Grid, Col } from 'react-bootstrap'
 import { fetchPostsIfNeeded } from '../data/posts'
 import { shouldFetchSinglePage } from '../data/pages'
 
-import Header from '../components/home/Header'
-import PostExcerpt from '../components/home/PostExcerpt'
+import Header from '../components/home/Header.jsx'
+import PostExcerpt from '../components/home/PostExcerpt.jsx'
 
 class Home extends Component {
   constructor(props){
