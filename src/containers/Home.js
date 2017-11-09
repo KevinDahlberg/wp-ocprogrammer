@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Grid, Col } from 'react-bootstrap'
 
 import { fetchPostsIfNeeded } from '../data/posts'
 import { shouldFetchSinglePage } from '../data/pages'
@@ -32,18 +31,14 @@ class Home extends Component {
       return (
         <div>
           <Header />
-          <Grid>
-            <Col xs={12} className="placeholder" />
-          </Grid>
+            <div className="placeholder" />
         </div>
       )
     } else {
       return (
         <div>
           <Header />
-          <Grid>
-            <PostExcerpt posts={this.props.posts} onItemClick={this.handleClick} />
-          </Grid>
+          <PostExcerpt posts={this.props.posts} onItemClick={this.handleClick} />
         </div>
       )
     }

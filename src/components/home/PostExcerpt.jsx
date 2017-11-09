@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 export default class PostExcerpt extends Component {
@@ -10,17 +9,17 @@ export default class PostExcerpt extends Component {
 
   excerptTitle (title) {
     return (
-      <Row>
+      <div>
         <h1>{title}</h1>
-      </Row>
+      </div>
     )
   }
 
   excerptSummary (summary) {
     return (
-      <Row>
+      <div>
         <div dangerouslySetInnerHTML={{__html: summary}} />
-        </Row>
+        </div>
     )
   }
 
@@ -33,24 +32,24 @@ export default class PostExcerpt extends Component {
   excerptLayout (postInfo) {
     if (postInfo.image) {
       return (
-        <Row>
-          <Col xs={6}>
+        <div>
+          <div>
             {this.excerptImage(postInfo.image)}
-          </Col>
-          <Col xs={6}>
+          </div>
+          <div>
             {this.excerptTitle(postInfo.title.rendered)}
             {this.excerptSummary(postInfo.excerpt.rendered)}
-          </Col>
-        </Row>
+          </div>
+        </div>
       )
     } else {
       return (
-        <Row>
-          <Col xs={12}>
+        <div>
+          <div>
             {this.excerptTitle(postInfo.title.rendered)}
             {this.excerptSummary(postInfo.excerpt.rendered)}
-          </Col>
-        </Row>
+          </div>
+        </div>
       )
     }
   }
@@ -60,9 +59,9 @@ export default class PostExcerpt extends Component {
     return (
     <Link to={postPath}>
       <div key={postInfo.id}>
-      <Col xs={4}>
+      <div>
         {this.excerptLayout(postInfo)}
-      </Col>
+      </div>
       </div>
     </Link>
     )

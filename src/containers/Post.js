@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Grid, Col } from 'react-bootstrap'
 
 import { shouldFetchSinglePosts } from '../data/posts'
 
@@ -26,19 +25,15 @@ class Post extends Component {
   render() {
     if (this.props.currentPost.length === 0) {
       return (
-        <Grid>
           <div>
             <Col xs={12} className="placeholder" />
           </div>
-        </Grid>
       )
     } else {
       return (
-        <Grid>
           <div>
             <ViewPost posts={this.props.currentPost} />
           </div>
-        </Grid>
       )
     }
   }

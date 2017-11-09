@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Col } from 'react-bootstrap'
 
 export default class ViewPost extends Component {
   constructor(props) {
@@ -12,16 +11,16 @@ export default class ViewPost extends Component {
   )
 
   postContent = (content) => (
-    <Col xs={12}>
+    <div>
     <div dangerouslySetInnerHTML={{__html: content}} />
-    </Col>
+    </div>
   )
 
   postLayout = (post, idx) => (
-    <Col xs={12} key={idx}>
+    <div key={idx}>
     {this.postHeader(post.title.rendered)}
     {this.postContent(post.content.rendered)}
-    </Col>
+    </div>
   )
 
   displayPosts = (postArray) => (
@@ -30,9 +29,9 @@ export default class ViewPost extends Component {
 
   render() {
     return (
-      <Col xs={12}>
+      <div xs={12}>
       {this.displayPosts(this.props.posts)}
-      </Col>
+      </div>
     )
   }
 }

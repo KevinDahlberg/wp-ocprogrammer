@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Grid, Col } from 'react-bootstrap'
 
 import { shouldFetchSinglePage } from '../data/pages'
 
@@ -25,19 +24,15 @@ class About extends Component {
   render() {
     if (this.props.currentPage.length === 0) {
       return (
-        <Grid>
           <div>
-            <Col xs={12} className="placeholder" />
+            <div className="placeholder" />
           </div>
-        </Grid>
       )
     } else {
       return (
-        <Grid>
           <div>
             <ViewPost posts={this.props.currentPage} />
           </div>
-        </Grid>
       )
     }
   }
