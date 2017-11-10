@@ -29023,27 +29023,64 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Menu = function (_Component) {
   _inherits(Menu, _Component);
 
-  function Menu() {
+  function Menu(props) {
     _classCallCheck(this, Menu);
 
-    return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
   }
 
   _createClass(Menu, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      var myTopNav = document.querySelector("topnav");
+      // if (myTopNav.className === "topnav") {
+      //   myTopNav.className += " responsive";
+      // } else {
+      //   myTopNav.className = "topnav";
+      // }
+      console.log(myTopNav);
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'topnav' },
+        { className: 'nav-wrapper' },
         _react2.default.createElement(
-          _reactRouterDom.NavLink,
-          { to: '/home' },
-          'Home'
-        ),
-        _react2.default.createElement(
-          _reactRouterDom.NavLink,
-          { to: '/about' },
-          'About'
+          'div',
+          { className: 'container topnav' },
+          _react2.default.createElement(
+            'div',
+            { className: 'row align-items-center d-flex justify-content-between topbar' },
+            _react2.default.createElement('div', { className: 'col-sm' }),
+            _react2.default.createElement(
+              _reactRouterDom.NavLink,
+              { className: 'col-sm nav-header', to: '/home' },
+              'The OCD Coder'
+            ),
+            _react2.default.createElement(
+              _reactRouterDom.NavLink,
+              { className: 'col-sm', to: '/about' },
+              'About'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'topnav', id: 'myTopNav' },
+            _react2.default.createElement(
+              _reactRouterDom.NavLink,
+              { to: '/home' },
+              'Home'
+            ),
+            _react2.default.createElement(
+              'a',
+              { href: 'javascript:void(0);', className: 'icon', onClick: this.handleClick() },
+              '\u2630'
+            )
+          )
         )
       );
     }
@@ -29204,7 +29241,7 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return (0, _redux.bindActionCreators)({ fetchPostsIfNeeded: _posts.fetchPostsIfNeeded, shouldFetchSinglePage: _pages.shouldFetchSinglePage }, dispatch);
+  return (0, _redux.bindActionCreators)({ fetchPostsIfNeeded: _posts.fetchPostsIfNeeded, shouldFetchSinglePage: _pages.shouldFetchSinglePage, fetchCategoriesIfNeeded: fetchCategoriesIfNeeded }, dispatch);
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Home);
@@ -30450,7 +30487,7 @@ exports = module.exports = __webpack_require__(64)(undefined);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext);", ""]);
 
 // module
-exports.push([module.i, "body, html {\n  margin: 0;\n  padding: 0;\n  font-family: 'PT serif', serif !important;\n  font-size: 20px;\n  line height: 33px;\n  min-height: 100%;\n  position: relative\n}\n\n.content-body {\n  padding-top: 70px;\n  min-height: 100%;\n}\n\n.excerpt-box {\n  padding: 20px;\n}\n\n.excerpt-box a {\n  color: black;\n}\n\n.excerpt-box a:hover {\n  color: gray;\n}\n\n.placeholder {\n  height: 500px;\n}\n\np {\n  padding: 10px;\n}\n\n.footer {\n\n}\n", ""]);
+exports.push([module.i, "body, html {\n  margin: 0;\n  padding: 0;\n  font-family: 'PT serif', serif !important;\n  font-size: 20px;\n  line height: 33px;\n  min-height: 100%;\n  position: relative\n}\n\n.content-body {\n  padding-top: 70px;\n  min-height: 100%;\n}\n\n.excerpt-box {\n  padding: 20px;\n}\n\n.excerpt-box a {\n  color: black;\n}\n\n.excerpt-box a:hover {\n  color: gray;\n}\n\n.placeholder {\n  height: 500px;\n}\n\np {\n  padding: 10px;\n}\n\n.footer {\n\n}\n\n/** Menu **/\n\n.nav-wrapper {\n  border-bottom: 1px solid #E8E8E8;\n  width: 100%;\n}\n\n.topnav {\n  background-color: white;\n  overflow: hidden;\n}\n\n.topnav a {\n  float: left;\n  display: block;\n  color: gray;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 18px;\n}\n\n.active {\n  color: black !important;\n}\n\n.topnav .icon {\n  display: none;\n}\n\n.topbar {\n  border-bottom: 1px solid #E8E8E8;\n}\n\n.topbar .nav-header {\n  color: black !important;\n  font-size: 36px;\n}\n\n/* Media Queries */\n\n@media screen and (max-width:600px) {\n  .topnav a:not(:first-child) {display: none;}\n  .topnav a:icon {\n    float: right;\n    display: block;\n  }\n}\n\n@media screen and (max-width:600px) {\n  .topnav.responsive {position: relative;}\n  .topnav.responsive a.icon {\n    position: absolute;\n    right: 0;\n    top: 0;\n  }\n  .topnav.responsive a {\n    float: none;\n    display: block;\n    text-align: left;\n  }\n}", ""]);
 
 // exports
 

@@ -18,7 +18,10 @@ This theme is a theme that combines React.js and Wordpress.
 * Wordpress REST API
 
 ## Versioning
-1.0 - Up and Running
+* 1.0 - Up and Running
+* 1.1
+  * removed bootstrap 3.0 and react-bootstrap
+  * 
 to do for 1.1 - make theme work with theme settings and work with widgets for nav bar
 
 ## License

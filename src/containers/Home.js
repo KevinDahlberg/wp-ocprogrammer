@@ -51,7 +51,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({fetchPostsIfNeeded, shouldFetchSinglePage}, dispatch)
+  return bindActionCreators({fetchPostsIfNeeded, shouldFetchSinglePage, fetchCategoriesIfNeeded}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
