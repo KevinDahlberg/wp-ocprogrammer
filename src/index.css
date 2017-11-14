@@ -15,18 +15,6 @@ body, html {
   min-height: 100%;
 }
 
-.excerpt-box {
-  padding: 20px;
-}
-
-.excerpt-box a {
-  color: black;
-}
-
-.excerpt-box a:hover {
-  color: gray;
-}
-
 .placeholder {
   height: 500px;
 }
@@ -116,4 +104,24 @@ p {
   .topnav-narrow {
       display: block;
   }
+}
+
+/* Excerpt Boxes */
+.excerpt-box-wrapper {
+  padding: 20px;
+}
+
+.excerpt-box {
+  padding: 20px;
+  border: 1px solid #E8E8E8;
+  height: 100%;
+}
+
+.excerpt-box a {
+  text-decoration: none;
+  color: black;
+}
+
+.excerpt-box a:hover {
+  color: gray;
 }

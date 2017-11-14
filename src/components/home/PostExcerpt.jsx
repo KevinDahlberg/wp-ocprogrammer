@@ -10,7 +10,7 @@ export default class PostExcerpt extends Component {
   excerptTitle (title) {
     return (
       <div>
-        <h1>{title}</h1>
+        <h3>{title}</h3>
       </div>
     )
   }
@@ -73,15 +73,19 @@ export default class PostExcerpt extends Component {
 
   render() {
     return (
-      <div className="excerpt-box">
-        {this.props.posts.map((post, idx) => {
-            return (
-              <div key={idx} onClick={this.handleClick} value={post.id}>
-              {this.excerptBox(post)}
-              </div>
-            )
-          })
-        }
+      <div className="container">
+        <div className="row">
+          {this.props.posts.map((post, idx) => {
+              return (
+                <div className="col-md-6 d-flex align-items-stretch excerpt-box-wrapper" key={idx}>
+                  <div className="excerpt-box" onClick={this.handleClick} value={post.id}>
+                  {this.excerptBox(post)}
+                  </div>
+                </div>
+              )
+            })
+          }
+        </div>
       </div>
     )
   }
