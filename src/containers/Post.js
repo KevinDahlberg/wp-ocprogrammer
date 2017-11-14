@@ -26,7 +26,7 @@ class Post extends Component {
     if (this.props.currentPost.length === 0) {
       return (
           <div>
-            <Col xs={12} className="placeholder" />
+            <div className="col-xs-12 placeholder" />
           </div>
       )
     } else {

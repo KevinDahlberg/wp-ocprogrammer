@@ -29012,6 +29012,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(28);
 
+var _bars = __webpack_require__(157);
+
+var _bars2 = _interopRequireDefault(_bars);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29030,7 +29034,7 @@ var Menu = function (_Component) {
 
     _this.state = {
       categoryArray: [],
-      myTopNav: ''
+      active: false
     };
 
     _this.handleClick = _this.handleClick.bind(_this);
@@ -29041,13 +29045,6 @@ var Menu = function (_Component) {
     key: 'componentWillMount',
     value: function componentWillMount() {
       this.fetchCategories();
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var topNav = document.querySelector("topnav");
-      console.log('topNav ', topNav);
-      this.setState(this.state.myTopNav = topNav);
     }
   }, {
     key: 'fetchCategories',
@@ -29068,42 +29065,42 @@ var Menu = function (_Component) {
   }, {
     key: 'handleClick',
     value: function handleClick() {
-      var myTopNav = document.querySelector("topnav");
-      // if (myTopNav.className === "topnav") {
-      //   myTopNav.className += " responsive";
-      // } else {
-      //   myTopNav.className = "topnav";
-      // }
-      console.log(this.state.myTopNav);
+      var linksEl = document.querySelector('.narrow-links');
+      if (linksEl.style.display === 'block') {
+        linksEl.style.display = 'none';
+      } else {
+        linksEl.style.display = 'block';
+      }
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
 
       return _react2.default.createElement(
-        'div',
+        'nav',
         { className: 'nav-wrapper' },
         _react2.default.createElement(
           'div',
-          { className: 'container topnav' },
+          { className: 'container' },
           _react2.default.createElement(
             'div',
             { className: 'row align-items-center d-flex justify-content-between topbar' },
-            _react2.default.createElement('div', { className: 'col-sm' }),
+            _react2.default.createElement('div', { className: 'col-xs' }),
             _react2.default.createElement(
               _reactRouterDom.NavLink,
-              { className: 'col-sm nav-header', to: '/home' },
+              { className: 'col-xs nav-header', to: '/home' },
               'The OCD Coder'
             ),
             _react2.default.createElement(
               _reactRouterDom.NavLink,
-              { className: 'col-sm', to: '/about' },
+              { className: 'col-xs', to: '/about' },
               'About'
             )
           ),
           _react2.default.createElement(
             'div',
-            { className: 'topnav', id: 'myTopNav' },
+            { className: 'topnav' },
             _react2.default.createElement(
               _reactRouterDom.NavLink,
               { to: '/home' },
@@ -29116,11 +29113,23 @@ var Menu = function (_Component) {
                 { to: path, key: idx },
                 item.name
               );
-            }),
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'topnav-narrow' },
+            _react2.default.createElement(_bars2.default, { className: 'nav-icon', onClick: this.handleClick }),
             _react2.default.createElement(
-              'a',
-              { href: 'javascript:void(0);', className: 'icon', onClick: this.handleClick() },
-              '\u2630'
+              'div',
+              { className: 'narrow-links' },
+              this.state.categoryArray.map(function (item, idx) {
+                var path = "/category/" + item.slug;
+                return _react2.default.createElement(
+                  _reactRouterDom.NavLink,
+                  { to: path, key: idx, onClick: _this3.handleClick },
+                  item.name
+                );
+              })
             )
           )
         )
@@ -30118,7 +30127,7 @@ var Post = function (_Component) {
         return _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement(Col, { xs: 12, className: 'placeholder' })
+          _react2.default.createElement('div', { className: 'col-xs-12 placeholder' })
         );
       } else {
         return _react2.default.createElement(
@@ -30631,10 +30640,126 @@ exports = module.exports = __webpack_require__(64)(undefined);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext);", ""]);
 
 // module
-exports.push([module.i, "body, html {\n  margin: 0;\n  padding: 0;\n  font-family: 'PT serif', serif !important;\n  font-size: 20px;\n  line height: 33px;\n  min-height: 100%;\n  position: relative\n}\n\n.content-body {\n  padding-top: 70px;\n  min-height: 100%;\n}\n\n.excerpt-box {\n  padding: 20px;\n}\n\n.excerpt-box a {\n  color: black;\n}\n\n.excerpt-box a:hover {\n  color: gray;\n}\n\n.placeholder {\n  height: 500px;\n}\n\np {\n  padding: 10px;\n}\n\n.footer {\n\n}\n\n/** Menu **/\n\n.nav-wrapper {\n  border-bottom: 1px solid #E8E8E8;\n  width: 100%;\n}\n\n.topnav {\n  background-color: white;\n  overflow: hidden;\n}\n\n.topnav a {\n  float: left;\n  display: block;\n  color: gray;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 18px;\n}\n\n.active {\n  color: black !important;\n}\n\n.topnav .icon {\n  display: none;\n}\n\n.topbar {\n  border-bottom: 1px solid #E8E8E8;\n}\n\n.topbar .nav-header {\n  color: black !important;\n  font-size: 36px;\n}\n\n/* Media Queries */\n\n@media screen and (max-width:600px) {\n  .topnav a:not(:first-child) {display: none;}\n  .topnav a:icon {\n    float: right;\n    display: block;\n  }\n}\n\n@media screen and (max-width:600px) {\n  .topnav.responsive {position: relative;}\n  .topnav.responsive a.icon {\n    position: absolute;\n    right: 0;\n    top: 0;\n  }\n  .topnav.responsive a {\n    float: none;\n    display: block;\n    text-align: left;\n  }\n}", ""]);
+exports.push([module.i, "body, html {\n  margin: 0;\n  padding: 0;\n  font-family: 'PT serif', serif !important;\n  font-size: 20px;\n  line height: 33px;\n  min-height: 100%;\n  position: relative\n}\n\n.content-body {\n  padding-top: 70px;\n  min-height: 100%;\n}\n\n.excerpt-box {\n  padding: 20px;\n}\n\n.excerpt-box a {\n  color: black;\n}\n\n.excerpt-box a:hover {\n  color: gray;\n}\n\n.placeholder {\n  height: 500px;\n}\n\np {\n  padding: 10px;\n}\n\n.footer {\n\n}\n\n/** Menu **/\n\n.nav-wrapper {\n  border-bottom: 1px solid #E8E8E8;\n  width: 100%;\n  overflow: hidden;\n}\n\n.topnav {\n  background-color: white;\n}\n\n.topnav a {\n  float: left;\n  display: block;\n  color: gray;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 18px;\n}\n\n.active {\n  color: black !important;\n}\n\n.nav-icon {\n  cursor: pointer;\n  color: gray;\n  font-size: 18px;\n  margin: 10px;\n  float: right;\n}\n\n.topnav-narrow {\n  display: none;\n\n}\n\n.narrow-links {\n  display: none;\n}\n\n.narrow-links a {\n  text-decoration: none;\n  display: block;\n  float: left;\n  clear: left;\n  padding: 0.5em 0;\n  color: gray;\n  font-size: 18px;\n}\n\n.topbar {\n  border-bottom: 1px solid #E8E8E8;\n}\n\n.topbar .nav-header {\n  color: black !important;\n  font-size: 36px;\n}\n\n.topbar a {\n  color: gray;\n  text-decoration: none;\n}\n\n/* Media Queries */\n\n@media (max-width:600px) {\n  .topnav {\n      display: none;\n  }\n    \n  .topnav-narrow {\n      display: block;\n  }\n}", ""]);
 
 // exports
 
+
+/***/ }),
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactIconBase = __webpack_require__(158);
+
+var _reactIconBase2 = _interopRequireDefault(_reactIconBase);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var FaBars = function FaBars(props) {
+    return _react2.default.createElement(
+        _reactIconBase2.default,
+        _extends({ viewBox: '0 0 40 40' }, props),
+        _react2.default.createElement(
+            'g',
+            null,
+            _react2.default.createElement('path', { d: 'm37.3 30v2.9q0 0.5-0.4 1t-1 0.4h-31.5q-0.6 0-1-0.4t-0.4-1v-2.9q0-0.6 0.4-1t1-0.4h31.5q0.5 0 1 0.4t0.4 1z m0-11.4v2.8q0 0.6-0.4 1t-1 0.5h-31.5q-0.6 0-1-0.5t-0.4-1v-2.8q0-0.6 0.4-1t1-0.5h31.5q0.5 0 1 0.5t0.4 1z m0-11.5v2.9q0 0.6-0.4 1t-1 0.4h-31.5q-0.6 0-1-0.4t-0.4-1v-2.9q0-0.5 0.4-1t1-0.4h31.5q0.5 0 1 0.4t0.4 1z' })
+        )
+    );
+};
+
+exports.default = FaBars;
+module.exports = exports['default'];
+
+/***/ }),
+/* 158 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(2);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var IconBase = function IconBase(_ref, _ref2) {
+  var children = _ref.children;
+  var color = _ref.color;
+  var size = _ref.size;
+  var style = _ref.style;
+  var width = _ref.width;
+  var height = _ref.height;
+
+  var props = _objectWithoutProperties(_ref, ['children', 'color', 'size', 'style', 'width', 'height']);
+
+  var _ref2$reactIconBase = _ref2.reactIconBase;
+  var reactIconBase = _ref2$reactIconBase === undefined ? {} : _ref2$reactIconBase;
+
+  var computedSize = size || reactIconBase.size || '1em';
+  return _react2.default.createElement('svg', _extends({
+    children: children,
+    fill: 'currentColor',
+    preserveAspectRatio: 'xMidYMid meet',
+    height: height || computedSize,
+    width: width || computedSize
+  }, reactIconBase, props, {
+    style: _extends({
+      verticalAlign: 'middle',
+      color: color || reactIconBase.color
+    }, reactIconBase.style || {}, style)
+  }));
+};
+
+IconBase.propTypes = {
+  color: _propTypes2.default.string,
+  size: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+  width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+  height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+  style: _propTypes2.default.object
+};
+
+IconBase.contextTypes = {
+  reactIconBase: _propTypes2.default.shape(IconBase.propTypes)
+};
+
+exports.default = IconBase;
+module.exports = exports['default'];
 
 /***/ })
 /******/ ]);
