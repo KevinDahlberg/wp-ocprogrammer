@@ -23,7 +23,7 @@ function receiveCategories(categoryArray) {
 }
 
 /** Fetch Functions */
-function fetchCategoriesIfNeeded() {
+export function fetchCategoriesIfNeeded() {
     return (dispatch, getState) => {
         if(shouldFetchCategories(getState())){
             return dispatch(fetchCategories)
