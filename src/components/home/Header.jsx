@@ -3,10 +3,13 @@ import React, { Component } from 'react'
 export default class Header extends Component {
   render() {
     return (
-          <div>
-              <h1>The OCD Coder</h1>
-              <p>Coding, Tutorials, and Rants</p>
+      <div className="container">
+          <div className="row">
+            <div className="col-xs-12">
+              <p className="site-heading">What did you learn today?</p>
           </div>
+        </div>
+      </div>
     )
   }
 }

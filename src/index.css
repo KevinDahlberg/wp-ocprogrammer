@@ -125,3 +125,9 @@ p {
 .excerpt-box a:hover {
   color: gray;
 }
+
+/* Header */
+.site-heading {
+  font-size: 22px!important;
+  font-weight: 600!important;
+}

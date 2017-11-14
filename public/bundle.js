@@ -29803,20 +29803,23 @@ var Header = function (_Component) {
   }
 
   _createClass(Header, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        null,
+        "div",
+        { className: "container" },
         _react2.default.createElement(
-          'h1',
-          null,
-          'The OCD Coder'
-        ),
-        _react2.default.createElement(
-          'p',
-          null,
-          'Coding, Tutorials, and Rants'
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-xs-12" },
+            _react2.default.createElement(
+              "p",
+              { className: "site-heading" },
+              "What did you learn today?"
+            )
+          )
         )
       );
     }
@@ -30648,7 +30651,7 @@ exports = module.exports = __webpack_require__(64)(undefined);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext);", ""]);
 
 // module
-exports.push([module.i, "body, html {\n  margin: 0;\n  padding: 0;\n  font-family: 'PT serif', serif !important;\n  font-size: 20px;\n  line height: 33px;\n  min-height: 100%;\n  position: relative\n}\n\n.content-body {\n  padding-top: 70px;\n  min-height: 100%;\n}\n\n.placeholder {\n  height: 500px;\n}\n\np {\n  padding: 10px;\n}\n\n.footer {\n\n}\n\n/** Menu **/\n\n.nav-wrapper {\n  border-bottom: 1px solid #E8E8E8;\n  width: 100%;\n  overflow: hidden;\n}\n\n.topnav {\n  background-color: white;\n}\n\n.topnav a {\n  float: left;\n  display: block;\n  color: gray;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 18px;\n}\n\n.active {\n  color: black !important;\n}\n\n.nav-icon {\n  cursor: pointer;\n  color: gray;\n  font-size: 18px;\n  margin: 10px;\n  float: right;\n}\n\n.topnav-narrow {\n  display: none;\n\n}\n\n.narrow-links {\n  display: none;\n}\n\n.narrow-links a {\n  text-decoration: none;\n  display: block;\n  float: left;\n  clear: left;\n  padding: 0.5em 0;\n  color: gray;\n  font-size: 18px;\n}\n\n.topbar {\n  border-bottom: 1px solid #E8E8E8;\n}\n\n.topbar .nav-header {\n  color: black !important;\n  font-size: 36px;\n}\n\n.topbar a {\n  color: gray;\n  text-decoration: none;\n}\n\n/* Media Queries */\n\n@media (max-width:600px) {\n  .topnav {\n      display: none;\n  }\n    \n  .topnav-narrow {\n      display: block;\n  }\n}\n\n/* Excerpt Boxes */\n.excerpt-box-wrapper {\n  padding: 20px;\n}\n\n.excerpt-box {\n  padding: 20px;\n  border: 1px solid #E8E8E8;\n  height: 100%;\n}\n\n.excerpt-box a {\n  text-decoration: none;\n  color: black;\n}\n\n.excerpt-box a:hover {\n  color: gray;\n}", ""]);
+exports.push([module.i, "body, html {\n  margin: 0;\n  padding: 0;\n  font-family: 'PT serif', serif !important;\n  font-size: 20px;\n  line height: 33px;\n  min-height: 100%;\n  position: relative\n}\n\n.content-body {\n  padding-top: 70px;\n  min-height: 100%;\n}\n\n.placeholder {\n  height: 500px;\n}\n\np {\n  padding: 10px;\n}\n\n.footer {\n\n}\n\n/** Menu **/\n\n.nav-wrapper {\n  border-bottom: 1px solid #E8E8E8;\n  width: 100%;\n  overflow: hidden;\n}\n\n.topnav {\n  background-color: white;\n}\n\n.topnav a {\n  float: left;\n  display: block;\n  color: gray;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 18px;\n}\n\n.active {\n  color: black !important;\n}\n\n.nav-icon {\n  cursor: pointer;\n  color: gray;\n  font-size: 18px;\n  margin: 10px;\n  float: right;\n}\n\n.topnav-narrow {\n  display: none;\n\n}\n\n.narrow-links {\n  display: none;\n}\n\n.narrow-links a {\n  text-decoration: none;\n  display: block;\n  float: left;\n  clear: left;\n  padding: 0.5em 0;\n  color: gray;\n  font-size: 18px;\n}\n\n.topbar {\n  border-bottom: 1px solid #E8E8E8;\n}\n\n.topbar .nav-header {\n  color: black !important;\n  font-size: 36px;\n}\n\n.topbar a {\n  color: gray;\n  text-decoration: none;\n}\n\n/* Media Queries */\n\n@media (max-width:600px) {\n  .topnav {\n      display: none;\n  }\n    \n  .topnav-narrow {\n      display: block;\n  }\n}\n\n/* Excerpt Boxes */\n.excerpt-box-wrapper {\n  padding: 20px;\n}\n\n.excerpt-box {\n  padding: 20px;\n  border: 1px solid #E8E8E8;\n  height: 100%;\n}\n\n.excerpt-box a {\n  text-decoration: none;\n  color: black;\n}\n\n.excerpt-box a:hover {\n  color: gray;\n}\n\n/* Header */\n.site-heading {\n  font-size: 22px!important;\n  font-weight: 600!important;\n}\n", ""]);
 
 // exports
 
