@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import FaCopyright from 'react-icons/lib/fa/copyright'
 
 export default class Footer extends Component {
   render () {
     return (
-      <div className="footer">
-        Copyright 2017 One Point Oh Solutions
-      </div>
+      <footer className="container footer-container">
+        <span><FaCopyright className="footer-icon"/> 2017 One Point Oh Solutions</span>
+      </footer>
     )
   }
 }

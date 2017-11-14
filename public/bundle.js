@@ -29159,6 +29159,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _copyright = __webpack_require__(159);
+
+var _copyright2 = _interopRequireDefault(_copyright);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29177,12 +29181,17 @@ var Footer = function (_Component) {
   }
 
   _createClass(Footer, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "footer" },
-        "Copyright 2017 One Point Oh Solutions"
+        'footer',
+        { className: 'container footer-container' },
+        _react2.default.createElement(
+          'span',
+          null,
+          _react2.default.createElement(_copyright2.default, { className: 'footer-icon' }),
+          ' 2017 One Point Oh Solutions'
+        )
       );
     }
   }]);
@@ -30651,7 +30660,7 @@ exports = module.exports = __webpack_require__(64)(undefined);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext);", ""]);
 
 // module
-exports.push([module.i, "body, html {\n  margin: 0;\n  padding: 0;\n  font-family: 'PT serif', serif !important;\n  font-size: 20px;\n  line height: 33px;\n  min-height: 100%;\n  position: relative\n}\n\n.content-body {\n  padding-top: 70px;\n  min-height: 100%;\n}\n\n.placeholder {\n  height: 500px;\n}\n\np {\n  padding: 10px;\n}\n\n.footer {\n\n}\n\n/** Menu **/\n\n.nav-wrapper {\n  border-bottom: 1px solid #E8E8E8;\n  width: 100%;\n  overflow: hidden;\n}\n\n.topnav {\n  background-color: white;\n}\n\n.topnav a {\n  float: left;\n  display: block;\n  color: gray;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 18px;\n}\n\n.active {\n  color: black !important;\n}\n\n.nav-icon {\n  cursor: pointer;\n  color: gray;\n  font-size: 18px;\n  margin: 10px;\n  float: right;\n}\n\n.topnav-narrow {\n  display: none;\n\n}\n\n.narrow-links {\n  display: none;\n}\n\n.narrow-links a {\n  text-decoration: none;\n  display: block;\n  float: left;\n  clear: left;\n  padding: 0.5em 0;\n  color: gray;\n  font-size: 18px;\n}\n\n.topbar {\n  border-bottom: 1px solid #E8E8E8;\n}\n\n.topbar .nav-header {\n  color: black !important;\n  font-size: 36px;\n}\n\n.topbar a {\n  color: gray;\n  text-decoration: none;\n}\n\n/* Media Queries */\n\n@media (max-width:600px) {\n  .topnav {\n      display: none;\n  }\n    \n  .topnav-narrow {\n      display: block;\n  }\n}\n\n/* Excerpt Boxes */\n.excerpt-box-wrapper {\n  padding: 20px;\n}\n\n.excerpt-box {\n  padding: 20px;\n  border: 1px solid #E8E8E8;\n  height: 100%;\n}\n\n.excerpt-box a {\n  text-decoration: none;\n  color: black;\n}\n\n.excerpt-box a:hover {\n  color: gray;\n}\n\n/* Header */\n.site-heading {\n  font-size: 22px!important;\n  font-weight: 600!important;\n}\n", ""]);
+exports.push([module.i, "body, html {\n  margin: 0;\n  padding: 0;\n  font-family: 'PT serif', serif !important;\n  font-size: 20px;\n  line height: 33px;\n  min-height: 100%;\n  position: relative\n}\n\n.content-body {\n  padding-top: 70px;\n  min-height: 100%;\n  padding-bottom: 70px;\n}\n\n.placeholder {\n  height: 500px;\n}\n\np {\n  padding: 10px;\n}\n\n.footer {\n\n}\n\n/** Menu **/\n\n.nav-wrapper {\n  border-bottom: 1px solid #E8E8E8;\n  width: 100%;\n  overflow: hidden;\n}\n\n.topnav {\n  background-color: white;\n}\n\n.topnav a {\n  float: left;\n  display: block;\n  color: gray;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 18px;\n}\n\n.active {\n  color: black !important;\n}\n\n.nav-icon {\n  cursor: pointer;\n  color: gray;\n  font-size: 18px;\n  margin: 10px;\n  float: right;\n}\n\n.topnav-narrow {\n  display: none;\n\n}\n\n.narrow-links {\n  display: none;\n}\n\n.narrow-links a {\n  text-decoration: none;\n  display: block;\n  float: left;\n  clear: left;\n  padding: 0.5em 0;\n  color: gray;\n  font-size: 18px;\n}\n\n.topbar {\n  border-bottom: 1px solid #E8E8E8;\n}\n\n.topbar .nav-header {\n  color: black !important;\n  font-size: 36px;\n}\n\n.topbar a {\n  color: gray;\n  text-decoration: none;\n}\n\n/* Media Queries */\n\n@media (max-width:600px) {\n  .topnav {\n      display: none;\n  }\n    \n  .topnav-narrow {\n      display: block;\n  }\n}\n\n/* Excerpt Boxes */\n.excerpt-box-wrapper {\n  padding: 20px;\n}\n\n.excerpt-box {\n  padding: 20px;\n  border: 1px solid #E8E8E8;\n  height: 100%;\n}\n\n.excerpt-box a {\n  text-decoration: none;\n  color: black;\n}\n\n.excerpt-box a:hover {\n  color: gray;\n}\n\n/* Header */\n.site-heading {\n  font-size: 22px!important;\n  font-weight: 600!important;\n}\n\n/* footer */\n.footer-container {\n  bottom: 0;\n  width: 100%;\n  background: white;\n  border-top: 1px solid #E8E8E8;\n}\n\n.footer-container span {\n  float: left;\n  display: block;\n  color: gray;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 18px;\n}\n\n.footer-icon {\n  margin-bottom: 4px;\n}", ""]);
 
 // exports
 
@@ -30770,6 +30779,44 @@ IconBase.contextTypes = {
 };
 
 exports.default = IconBase;
+module.exports = exports['default'];
+
+/***/ }),
+/* 159 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactIconBase = __webpack_require__(158);
+
+var _reactIconBase2 = _interopRequireDefault(_reactIconBase);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var FaCopyright = function FaCopyright(props) {
+    return _react2.default.createElement(
+        _reactIconBase2.default,
+        _extends({ viewBox: '0 0 40 40' }, props),
+        _react2.default.createElement(
+            'g',
+            null,
+            _react2.default.createElement('path', { d: 'm28.7 24v2.4q0 1.1-0.8 2t-2.1 1.3-2.7 0.8-2.6 0.2q-4.6 0-7.6-3.1t-3.1-7.7q0-4.5 3-7.6t7.6-3q0.7 0 1.7 0.1t2 0.4 2.1 0.7 1.6 1.3 0.6 1.8v2.4q0 0.4-0.4 0.4h-2.6q-0.4 0-0.4-0.4v-1.5q0-1-1.4-1.5t-3.1-0.6q-3.1 0-5.1 2.1t-2 5.3q0 3.3 2.1 5.5t5.2 2.2q1.5 0 3.1-0.5t1.5-1.5v-1.5q0-0.2 0.1-0.3t0.3-0.1h2.6q0.1 0 0.3 0.1t0.1 0.3z m-8.6-18.3q-2.9 0-5.5 1.2t-4.6 3-3 4.6-1.1 5.5 1.1 5.5 3 4.6 4.6 3 5.5 1.2 5.6-1.2 4.5-3 3.1-4.6 1.1-5.5-1.1-5.5-3.1-4.6-4.5-3.1-5.6-1.1z m17.2 14.3q0 4.7-2.3 8.6t-6.3 6.2-8.6 2.3-8.6-2.3-6.2-6.2-2.3-8.6 2.3-8.6 6.2-6.2 8.6-2.3 8.6 2.3 6.3 6.2 2.3 8.6z' })
+        )
+    );
+};
+
+exports.default = FaCopyright;
 module.exports = exports['default'];
 
 /***/ })
