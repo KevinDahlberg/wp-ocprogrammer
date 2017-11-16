@@ -4857,9 +4857,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var REQUEST_CATEGORIES = 'REQUEST_CATEGORIES';
 var RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
+var SET_SELECTED_CATEGORY = 'SET_SELECTED_CATEGORY';
 
 var initialState = {
-    categories: []
+    categories: [],
+    currentCategoryPosts: []
 
     /** Actions */
 };function requestCategories() {
@@ -4873,6 +4875,13 @@ function receiveCategories(categoryArray) {
     return {
         type: RECEIVE_CATEGORIES,
         categories: categoryArray
+    };
+}
+
+function setSelectedCategory(categoryArray) {
+    return {
+        type: SET_SELECTED_CATEGORY,
+        currentCategoryPosts: categoryArray
     };
 }
 
@@ -4908,6 +4917,13 @@ function fetchCategories() {
     };
 }
 
+function filterCategory(state, categoryName) {
+    var posts = state.postReducer.posts;
+    var categoryPosts = posts.filter(function (post) {
+        return post.categoryID === categoryName.ID;
+    });
+}
+
 /** Reducer */
 function categoryReducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -4919,6 +4935,10 @@ function categoryReducer() {
         case RECEIVE_CATEGORIES:
             return _extends({}, state, {
                 categories: action.categories
+            });
+        case SET_SELECTED_CATEGORY:
+            return _extends({}, state, {
+                currentCategoryPosts: action.currentCategoryPosts
             });
         default:
             return state;

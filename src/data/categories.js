@@ -2,9 +2,11 @@ import fetch from 'isomorphic-fetch'
 
 const REQUEST_CATEGORIES = 'REQUEST_CATEGORIES';
 const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
+const SET_SELECTED_CATEGORY = 'SET_SELECTED_CATEGORY';
 
 const initialState = {
-    categories: []
+    categories: [],
+    currentCategoryPosts: []
 }
 
 /** Actions */
@@ -19,6 +21,13 @@ function receiveCategories(categoryArray) {
     return {
         type: RECEIVE_CATEGORIES,
         categories: categoryArray
+    }
+}
+
+function setSelectedCategory(categoryArray) {
+    return {
+        type: SET_SELECTED_CATEGORY,
+        currentCategoryPosts: categoryArray
     }
 }
 
@@ -52,6 +61,11 @@ function fetchCategories() {
     }
 }
 
+function filterCategory(state, categoryName) {
+    const posts = state.postReducer.posts
+    const categoryPosts = posts.filter((post) => {return post.categoryID === categoryName.ID})
+}
+
 /** Reducer */
 function categoryReducer(state = initialState, action) {
     switch (action.type) {
@@ -61,6 +75,11 @@ function categoryReducer(state = initialState, action) {
             return {
                 ...state,
                 categories: action.categories
+            }
+        case SET_SELECTED_CATEGORY:
+            return {
+                ...state,
+                currentCategoryPosts: action.currentCategoryPosts
             }
         default:
             return state
