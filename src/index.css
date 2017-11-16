@@ -124,7 +124,12 @@ p {
 }
 
 .excerpt-box a:hover {
+  color: gray !important;
+}
+
+.excerpt-summary {
   color: gray;
+  font-family: Geneva,Arial,sans-serif!important;
 }
 
 /* Posts */

@@ -17,9 +17,9 @@ export default class PostExcerpt extends Component {
 
   excerptSummary (summary) {
     return (
-      <div>
+      <div className="excerpt-summary">
         <div dangerouslySetInnerHTML={{__html: summary}} />
-        </div>
+      </div>
     )
   }
 

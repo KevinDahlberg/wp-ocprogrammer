@@ -5156,7 +5156,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(147);
+var	fixUrls = __webpack_require__(146);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -5490,13 +5490,13 @@ var _Root = __webpack_require__(84);
 
 var _Root2 = _interopRequireDefault(_Root);
 
-var _registerServiceWorker = __webpack_require__(144);
+var _registerServiceWorker = __webpack_require__(143);
 
 var _registerServiceWorker2 = _interopRequireDefault(_registerServiceWorker);
 
-__webpack_require__(145);
+__webpack_require__(144);
 
-__webpack_require__(148);
+__webpack_require__(147);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25692,7 +25692,7 @@ var _Layout = __webpack_require__(119);
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
-var _store = __webpack_require__(141);
+var _store = __webpack_require__(140);
 
 var _store2 = _interopRequireDefault(_store);
 
@@ -28504,11 +28504,11 @@ var _Home = __webpack_require__(135);
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _About = __webpack_require__(139);
+var _About = __webpack_require__(138);
 
 var _About2 = _interopRequireDefault(_About);
 
-var _Post = __webpack_require__(140);
+var _Post = __webpack_require__(139);
 
 var _Post2 = _interopRequireDefault(_Post);
 
@@ -29473,7 +29473,7 @@ var _pages = __webpack_require__(31);
 
 var _categories = __webpack_require__(64);
 
-var _PostExcerpt = __webpack_require__(138);
+var _PostExcerpt = __webpack_require__(137);
 
 var _PostExcerpt2 = _interopRequireDefault(_PostExcerpt);
 
@@ -30017,8 +30017,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 
 /***/ }),
-/* 137 */,
-/* 138 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30074,7 +30073,7 @@ var PostExcerpt = function (_Component) {
     value: function excerptSummary(summary) {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'excerpt-summary' },
         _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: summary } })
       );
     }
@@ -30171,7 +30170,7 @@ var PostExcerpt = function (_Component) {
 exports.default = PostExcerpt;
 
 /***/ }),
-/* 139 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30261,7 +30260,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(About);
 
 /***/ }),
-/* 140 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30353,7 +30352,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Post);
 
 /***/ }),
-/* 141 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30368,7 +30367,7 @@ var _redux = __webpack_require__(7);
 
 var _reactRouterRedux = __webpack_require__(23);
 
-var _reduxThunk = __webpack_require__(142);
+var _reduxThunk = __webpack_require__(141);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -30376,7 +30375,7 @@ var _createBrowserHistory = __webpack_require__(59);
 
 var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
 
-var _reducers = __webpack_require__(143);
+var _reducers = __webpack_require__(142);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -30391,7 +30390,7 @@ var store = (0, _redux.createStore)(_reducers2.default, _redux.applyMiddleware.a
 exports.default = store;
 
 /***/ }),
-/* 142 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30420,7 +30419,7 @@ thunk.withExtraArgument = createThunkMiddleware;
 exports['default'] = thunk;
 
 /***/ }),
-/* 143 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30458,7 +30457,7 @@ var rootReducer = (0, _redux.combineReducers)({
 exports.default = rootReducer;
 
 /***/ }),
-/* 144 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30566,13 +30565,13 @@ function unregister() {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 145 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(146);
+var content = __webpack_require__(145);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30597,7 +30596,7 @@ if(false) {
 }
 
 /***/ }),
-/* 146 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(66)(undefined);
@@ -30611,7 +30610,7 @@ exports.push([module.i, "/*!\n * Bootstrap Grid v4.0.0-beta.2 (https://getbootst
 
 
 /***/ }),
-/* 147 */
+/* 146 */
 /***/ (function(module, exports) {
 
 
@@ -30706,13 +30705,13 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 148 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(149);
+var content = __webpack_require__(148);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30737,7 +30736,7 @@ if(false) {
 }
 
 /***/ }),
-/* 149 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(66)(undefined);
@@ -30745,7 +30744,7 @@ exports = module.exports = __webpack_require__(66)(undefined);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext);", ""]);
 
 // module
-exports.push([module.i, "body, html {\n  margin: 0;\n  padding: 0;\n  font-family: \"Lucida Grande\",\"Lucida Sans Unicode\",\"Lucida Sans\",Geneva,Arial,sans-serif !important;\n  font-size: 20px;\n\n  min-height: 100%;\n  position: relative;\n}\n\n.content-body {\n  padding-top: 70px;\n  min-height: 100%;\n  padding-bottom: 70px;\n}\n\n.placeholder {\n  height: 500px;\n}\n\np {\n  padding: 10px;\n}\n\n.footer {\n\n}\n\n/** Menu **/\n\n.nav-wrapper {\n  border-bottom: 1px solid #E8E8E8;\n  width: 100%;\n  overflow: hidden;\n}\n\n.topnav {\n  background-color: white;\n}\n\n.topnav a {\n  float: left;\n  display: block;\n  color: gray;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 18px;\n}\n\n.active {\n  color: black !important;\n}\n\n.nav-icon {\n  cursor: pointer;\n  color: gray;\n  font-size: 18px;\n  margin: 10px;\n  float: right;\n}\n\n.topnav-narrow {\n  display: none;\n\n}\n\n.narrow-links {\n  display: none;\n}\n\n.narrow-links a {\n  text-decoration: none;\n  display: block;\n  float: left;\n  clear: left;\n  padding: 0.5em 0;\n  color: gray;\n  font-size: 18px;\n}\n\n.topbar {\n  border-bottom: 1px solid #E8E8E8;\n}\n\n.topbar .nav-header {\n  color: black !important;\n  font-size: 36px;\n}\n\n.topbar a {\n  color: gray;\n  text-decoration: none;\n}\n\n/* Media Queries */\n\n@media (max-width:600px) {\n  .topnav {\n      display: none;\n  }\n    \n  .topnav-narrow {\n      display: block;\n  }\n}\n\n/* Excerpt Boxes */\n.excerpt-box-wrapper {\n  padding: 20px;\n}\n\n.excerpt-box {\n  padding: 20px;\n  border: 1px solid #E8E8E8;\n  height: 100%;\n}\n\n.excerpt-box a {\n  text-decoration: none;\n  color: black;\n}\n\n.excerpt-box a:hover {\n  color: gray;\n}\n\n/* Posts */\n.post-content {\n  font-family: Georgia,Cambria,\"Times New Roman\",Times,serif;\n  font-weight: 400;\n  font-style: normal;\n  font-size: 21px;\n  line-height: 1.58;\n  letter-spacing: -.003em;\n}\n\n/* Header */\n.site-heading {\n  font-size: 22px!important;\n  font-weight: 600!important;\n}\n\n/* footer */\n.footer-container {\n  bottom: 0;\n  width: 100%;\n  background: white;\n  border-top: 1px solid #E8E8E8;\n}\n\n.footer-container span {\n  float: left;\n  display: block;\n  color: gray;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 18px;\n}\n\n.footer-icon {\n  margin-bottom: 4px;\n}", ""]);
+exports.push([module.i, "body, html {\n  margin: 0;\n  padding: 0;\n  font-family: \"Lucida Grande\",\"Lucida Sans Unicode\",\"Lucida Sans\",Geneva,Arial,sans-serif !important;\n  font-size: 20px;\n\n  min-height: 100%;\n  position: relative;\n}\n\n.content-body {\n  padding-top: 70px;\n  min-height: 100%;\n  padding-bottom: 70px;\n}\n\n.placeholder {\n  height: 500px;\n}\n\np {\n  padding: 10px;\n}\n\n.footer {\n\n}\n\n/** Menu **/\n\n.nav-wrapper {\n  border-bottom: 1px solid #E8E8E8;\n  width: 100%;\n  overflow: hidden;\n}\n\n.topnav {\n  background-color: white;\n}\n\n.topnav a {\n  float: left;\n  display: block;\n  color: gray;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 18px;\n}\n\n.active {\n  color: black !important;\n}\n\n.nav-icon {\n  cursor: pointer;\n  color: gray;\n  font-size: 18px;\n  margin: 10px;\n  float: right;\n}\n\n.topnav-narrow {\n  display: none;\n\n}\n\n.narrow-links {\n  display: none;\n}\n\n.narrow-links a {\n  text-decoration: none;\n  display: block;\n  float: left;\n  clear: left;\n  padding: 0.5em 0;\n  color: gray;\n  font-size: 18px;\n}\n\n.topbar {\n  border-bottom: 1px solid #E8E8E8;\n}\n\n.topbar .nav-header {\n  color: black !important;\n  font-size: 36px;\n}\n\n.topbar a {\n  color: gray;\n  text-decoration: none;\n}\n\n/* Media Queries */\n\n@media (max-width:600px) {\n  .topnav {\n      display: none;\n  }\n    \n  .topnav-narrow {\n      display: block;\n  }\n}\n\n/* Excerpt Boxes */\n.excerpt-box-wrapper {\n  padding: 20px;\n}\n\n.excerpt-box {\n  padding: 20px;\n  border: 1px solid #E8E8E8;\n  height: 100%;\n}\n\n.excerpt-box a {\n  text-decoration: none;\n  color: black;\n}\n\n.excerpt-box a:hover {\n  color: gray !important;\n}\n\n.excerpt-summary {\n  color: gray;\n  font-family: Geneva,Arial,sans-serif!important;\n}\n\n/* Posts */\n.post-content {\n  font-family: Georgia,Cambria,\"Times New Roman\",Times,serif;\n  font-weight: 400;\n  font-style: normal;\n  font-size: 21px;\n  line-height: 1.58;\n  letter-spacing: -.003em;\n}\n\n/* Header */\n.site-heading {\n  font-size: 22px!important;\n  font-weight: 600!important;\n}\n\n/* footer */\n.footer-container {\n  bottom: 0;\n  width: 100%;\n  background: white;\n  border-top: 1px solid #E8E8E8;\n}\n\n.footer-container span {\n  float: left;\n  display: block;\n  color: gray;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 18px;\n}\n\n.footer-icon {\n  margin-bottom: 4px;\n}", ""]);
 
 // exports
 
