@@ -6,7 +6,6 @@ import { fetchPostsIfNeeded } from '../data/posts'
 import { shouldFetchSinglePage } from '../data/pages'
 import { fetchCategoriesIfNeeded } from '../data/categories'
 
-import Header from '../components/home/Header.jsx'
 import PostExcerpt from '../components/home/PostExcerpt.jsx'
 
 
@@ -33,14 +32,12 @@ class Home extends Component {
     if (this.props.posts.length === 0) {
       return (
         <div>
-          <Header />
             <div className="placeholder" />
         </div>
       )
     } else {
       return (
         <div>
-          <Header />
           <PostExcerpt posts={this.props.posts} onItemClick={this.handleClick} />
         </div>
       )

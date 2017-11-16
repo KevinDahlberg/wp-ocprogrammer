@@ -3,11 +3,11 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'PT serif', serif !important;
+  font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif !important;
   font-size: 20px;
-  line height: 33px;
+
   min-height: 100%;
-  position: relative
+  position: relative;
 }
 
 .content-body {
@@ -125,6 +125,16 @@ p {
 
 .excerpt-box a:hover {
   color: gray;
+}
+
+/* Posts */
+.post-content {
+  font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 21px;
+  line-height: 1.58;
+  letter-spacing: -.003em;
 }
 
 /* Header */

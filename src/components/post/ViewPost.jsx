@@ -29,8 +29,12 @@ export default class ViewPost extends Component {
 
   render() {
     return (
-      <div xs={12}>
-      {this.displayPosts(this.props.posts)}
+      <div className="container">
+        <div className="row d-flex justify-content-center">
+          <div className="col-sm-9 post-content">
+            {this.displayPosts(this.props.posts)}
+          </div>
+        </div>
       </div>
     )
   }
