@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { fetchPostsIfNeeded } from '../data/posts'
 import { shouldFetchSinglePage } from '../data/pages'
-import { fetchCategoriesIfNeeded } from '../data/categories'
+import { fetchCategoriesIfNeeded, filterCategoryPosts } from '../data/categories'
 
 import PostExcerpt from '../components/home/PostExcerpt.jsx'
 
@@ -12,33 +12,38 @@ import PostExcerpt from '../components/home/PostExcerpt.jsx'
 class Home extends Component {
   constructor(props){
     super(props)
+    
+    this.state = {
+        currentCategoryPosts: []
+    }
 
     this.handleClick = this.handleClick.bind(this)
   }
 
-  componentWillMount() {
-    const { fetchPostsIfNeeded, shouldFetchSinglePage, fetchCategoriesIfNeeded } = this.props
+  componentDidMount() {
+    const { fetchCategoriesIfNeeded, fetchPostsIfNeeded, shouldFetchSinglePage, filterCategoryPosts, posts, categoryArray } = this.props
     fetchCategoriesIfNeeded()
     fetchPostsIfNeeded()
-    //this will be replaced by something from the settings that will provide the pages that are in the nav widget
     const pageName = 'about'
     shouldFetchSinglePage(pageName)
+    const currentCategory = this.props.match.params.title
+    filterCategoryPosts(currentCategory, posts, categoryArray)
   }
 
   handleClick(e) {
   }
 
   render() {
-    if (this.props.posts.length === 0) {
+    if (this.props.currentCategoryPosts.length === 0) {
       return (
         <div>
-            <div className="placeholder" />
+            <div className="col-xs-12 placeholder" />
         </div>
       )
     } else {
       return (
         <div>
-          <PostExcerpt posts={this.props.posts} onItemClick={this.handleClick} />
+          <PostExcerpt posts={this.props.currentCategoryPosts} onItemClick={this.handleClick} />
         </div>
       )
     }
@@ -46,12 +51,13 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  posts: state.postReducer.posts,
-  isFetching: state.postReducer.isFetching,
+    categoryArray: state.categoryReducer.categoryArray,
+    currentCategoryPosts: state.categoryReducer.currentCategoryPosts,
+    posts: state.postReducer.posts
 })
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({fetchPostsIfNeeded, shouldFetchSinglePage, fetchCategoriesIfNeeded}, dispatch)
+  return bindActionCreators({fetchPostsIfNeeded, shouldFetchSinglePage, fetchCategoriesIfNeeded, filterCategoryPosts}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

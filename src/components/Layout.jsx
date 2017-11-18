@@ -6,6 +6,7 @@ import Footer from './footer/Footer.jsx'
 import Home from '../containers/Home.js'
 import About from '../containers/About.js'
 import Post from '../containers/Post.js'
+import CategoryView from '../containers/CategoryView.js'
 
 const Layout = () => (
   <div className="body">
@@ -13,10 +14,11 @@ const Layout = () => (
       <div>
         <Menu />
         <div className="content-body">
-        <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/post/:title" component={Post} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/post/:title" component={Post} />
+          <Route exact path="/category/:title" component={CategoryView} />
         </div>
         <Footer />
       </div>

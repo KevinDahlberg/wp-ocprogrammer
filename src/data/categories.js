@@ -32,6 +32,11 @@ function setSelectedCategory(categoryArray) {
 }
 
 /** Fetch Functions */
+
+/**
+ * @function fetchCategoriesIfNeeded
+ * @desc checks to see if categories have populated, if the haven't, gets them
+ */
 export function fetchCategoriesIfNeeded() {
     return (dispatch, getState) => {
         if(shouldFetchCategories(getState())){
@@ -40,8 +45,13 @@ export function fetchCategoriesIfNeeded() {
     }
 }
 
+/**
+ * @function shouldFetchCategories
+ * @desc true/false function to figure out if the category object has populated
+ */
 function shouldFetchCategories(state) {
     const categories = state.categoryReducer.categories;
+    console.log('state in should fetch Categories ', state)
     if (categories.length === 0) {
         return true
     } else {
@@ -49,6 +59,10 @@ function shouldFetchCategories(state) {
     }
 }
 
+/**
+ * @function fetchCategories
+ * @desc fetches all of the categories
+ */
 function fetchCategories() {
     const init = {
         method: 'GET'
@@ -61,13 +75,23 @@ function fetchCategories() {
     }
 }
 
-function filterCategory(state, categoryName) {
-    const posts = state.postReducer.posts
+/**
+ * @function filterCategoryPosts
+ * @desc filters the posts related to a particular category
+ */
+export function filterCategoryPosts(categoryName, posts, categoryArray) {
+    console.log('category name ', categoryName, ' posts, ', posts, ' categoryArray ', categoryArray)
+    const currentCategory = categoryArray.filter((cat) => {
+        return cat.slug === categoryName
+    })
+    console.log('current category', currentCategory)
+
     const categoryPosts = posts.filter((post) => {return post.categoryID === categoryName.ID})
 }
 
 /** Reducer */
 function categoryReducer(state = initialState, action) {
+    console.log('action is', action)
     switch (action.type) {
         case REQUEST_CATEGORIES:
             return state
