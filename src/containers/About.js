@@ -19,6 +19,7 @@ class About extends Component {
     const currentPageTitle = 'about'
     console.log('current page title ', currentPageTitle);
     shouldFetchSinglePage(currentPageTitle)
+    console.log('menu ', WPsettings.nav)
   }
 
   render() {

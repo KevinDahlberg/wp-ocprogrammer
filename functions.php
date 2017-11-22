@@ -17,4 +17,30 @@ function theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts');
 
+function register_menus() {
+  register_nav_menus(
+    array(
+      'header_menu' => __( 'Header Menu' )
+    )
+  );
+}
+add_action( 'init', 'register_menus' );
+
+function list_menus() {
+  $menu_name = wp_get_nav_menus();
+  $menus = wp_get_nav_menu_items( '2');
+
+  return $menus;
+}
+
+function register_routes() {
+  register_rest_route( 'wp/v2', '/menus', array(
+    array(
+      'methods' => 'GET',
+      'callback' => 'list_menus'
+    )
+    ));
+}
+add_action( 'rest_api_init', 'register_routes')
+
 ?>

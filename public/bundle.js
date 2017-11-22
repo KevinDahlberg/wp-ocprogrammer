@@ -30274,6 +30274,7 @@ var About = function (_Component) {
       var currentPageTitle = 'about';
       console.log('current page title ', currentPageTitle);
       shouldFetchSinglePage(currentPageTitle);
+      console.log('menu ', WPsettings.nav);
     }
   }, {
     key: 'render',
@@ -30473,6 +30474,7 @@ var Home = function (_Component) {
       shouldFetchSinglePage(pageName);
       var currentCategory = this.props.match.params.title;
       filterCategoryPosts(currentCategory, posts, categoryArray);
+      console.log('menu ', WPsettings.nav);
     }
   }, {
     key: 'handleClick',

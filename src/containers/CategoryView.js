@@ -28,6 +28,7 @@ class Home extends Component {
     shouldFetchSinglePage(pageName)
     const currentCategory = this.props.match.params.title
     filterCategoryPosts(currentCategory, posts, categoryArray)
+    console.log('menu ', WPsettings.nav)
   }
 
   handleClick(e) {
