@@ -27,10 +27,16 @@ function register_menus() {
 add_action( 'init', 'register_menus' );
 
 function list_menus() {
-  $menu_name = wp_get_nav_menus();
-  $menus = wp_get_nav_menu_items( '2');
+  $menus = wp_get_nav_menus();
 
   return $menus;
+}
+
+function get_single_menu( $request ) {
+  $id = (int) $request['id'];
+  $single_menu = wp_get_nav_menu_items($id);
+
+  return $single_menu;
 }
 
 function register_routes() {
@@ -40,7 +46,15 @@ function register_routes() {
       'callback' => 'list_menus'
     )
     ));
+
+  register_rest_route( 'wp/v2', '/menus/(?P<id>\d+)', array(
+    array(
+      'methods' => 'GET',
+      'callback' => 'get_single_menu'
+    )
+    ));
 }
+
 add_action( 'rest_api_init', 'register_routes')
 
 ?>

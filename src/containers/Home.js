@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 import { fetchPostsIfNeeded } from '../data/posts'
 import { shouldFetchSinglePage } from '../data/pages'
-import { fetchCategoriesIfNeeded } from '../data/categories'
 
 import PostExcerpt from '../components/home/PostExcerpt.jsx'
 
@@ -17,8 +16,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    const { fetchPostsIfNeeded, shouldFetchSinglePage, fetchCategoriesIfNeeded } = this.props
-    fetchCategoriesIfNeeded()
+    const { fetchPostsIfNeeded, shouldFetchSinglePage } = this.props
     fetchPostsIfNeeded()
     //this will be replaced by something from the settings that will provide the pages that are in the nav widget
     const pageName = 'about'
@@ -51,7 +49,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({fetchPostsIfNeeded, shouldFetchSinglePage, fetchCategoriesIfNeeded}, dispatch)
+  return bindActionCreators({fetchPostsIfNeeded, shouldFetchSinglePage}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

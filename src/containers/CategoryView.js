@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 import { fetchPostsIfNeeded } from '../data/posts'
 import { shouldFetchSinglePage } from '../data/pages'
-import { fetchCategoriesIfNeeded, filterCategoryPosts } from '../data/categories'
 
 import PostExcerpt from '../components/home/PostExcerpt.jsx'
 
@@ -21,14 +20,13 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    const { fetchCategoriesIfNeeded, fetchPostsIfNeeded, shouldFetchSinglePage, filterCategoryPosts, posts, categoryArray } = this.props
-    fetchCategoriesIfNeeded()
+    const { fetchPostsIfNeeded, shouldFetchSinglePage, filterCategoryPosts, posts, categoryArray } = this.props
+  
     fetchPostsIfNeeded()
     const pageName = 'about'
     shouldFetchSinglePage(pageName)
     const currentCategory = this.props.match.params.title
     filterCategoryPosts(currentCategory, posts, categoryArray)
-    console.log('menu ', WPsettings.nav)
   }
 
   handleClick(e) {
@@ -58,7 +56,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({fetchPostsIfNeeded, shouldFetchSinglePage, fetchCategoriesIfNeeded, filterCategoryPosts}, dispatch)
+  return bindActionCreators({fetchPostsIfNeeded, shouldFetchSinglePage, filterCategoryPosts}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

@@ -22,7 +22,7 @@ export default class Menu extends Component {
     const init = {
         method: 'GET'
     }
-    fetch('http://theocdcoder.com/wp-json/wp/v2/categories', init)
+    fetch('http://theocdcoder.com/wp-json/wp/v2/menus', init)
       .then(response => response.json())
       .then(json => this.setState(this.state.categoryArray = json))
       .then(() => {console.log(this.state)})
@@ -51,9 +51,9 @@ export default class Menu extends Component {
           <div className="topnav">
             <NavLink to="/home">Home</NavLink>
             {this.state.categoryArray.map((item, idx) => {
-              const path = "/category/" + item.slug
+              const path = "/category/" + item.title
               return (
-                <NavLink to={path} key={idx}>{item.name}</NavLink>
+                <NavLink to={path} key={idx}>{item.title}</NavLink>
               )
             })}
           </div>
